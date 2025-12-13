@@ -106,7 +106,13 @@ git commit -m "Descrição das alterações"
 ```
 git push
 ```
-
+---
+## Divisão do Trabalho:
+* Documentação: Warley
+* Front End: Pedro Henrique
+* Back End: Arthu
+* Slide: Fernanda
+* Correções e ajuda em geral(Linder): William
 ---
 
 ## ✅ Observações finais
