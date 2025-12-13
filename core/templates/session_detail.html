@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DetalhesSessão</title>
+</head>
+<body>
+    <h2>{{ session.title }}</h2>
+    <button type=""><a href="{% url 'home' %}">Voltar</a></button>
+
+    <button type=""><a href="{% url 'create_document' session.id %}">Adicionar documento</a></a></button>
+
+    <hr>
+
+    {% for document in documents %}
+        <div>
+            <strong>{{ document.title }}</strong><br>
+            {{ document.description }}<br>
+
+            {% if document.file %}
+            
+                <a href="{{ document.file.url }}" target="_blank">
+                    📂 Abrir arquivo
+                </a><br>
+                
+            {% endif %}
+
+            <a href="{% url 'edit_document' document.id %}">Editar</a> |
+            <a href="{% url 'delete_document' document.id %}">Excluir</a>
+        </div>
+        <hr>
+    {% empty %}
+        <p>Nenhum documento.</p>
+    {% endfor %}
+</body>
+</html>

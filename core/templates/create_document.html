@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriarDocumento</title>
+</head>
+<body>
+    <h2>Adicionar Documento</h2>
+
+    <p>Sessão: <strong>{{ session.title }}</strong></p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <input type="text" name="title" placeholder="Título" required>
+        <br><br>
+
+        <textarea name="description" placeholder="Descrição"></textarea>
+        <br><br>
+
+        <input type="file" name="file">
+        <br><br>
+
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <br>
+    <a href="{% url 'home' %}">Voltar</a>
+</body>
+</html>

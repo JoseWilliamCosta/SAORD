@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Pagina dos Documentos</h2>
+
+    
+
+    <h1>Bem-Vindo, {{ request.user.username }}</h1>
+    <a href="{% url 'logout' %}">Logout</a>
+
+    <h1>Minhas Sessões</h1>
+
+    <a href="{% url 'create_session' %}">Criar nova sessão</a>
+    <hr>
+
+    {% for session in sessions %}
+        <div style="border:1px solid black; padding:10px; margin:10px">
+            <h3>
+                <a href="{% url 'session_detail' session.id %}">
+                    {{ session.title }}
+                        {% with total=session.documents.count %}
+                            {% if total > 0 %}
+                                📄+{{ total }}
+                            {% endif %}
+                        {% endwith %}
+                </a>
+            </h3>
+
+            <a href="{% url 'edit_session' session.id %}">Editar</a> |
+            <a href="{% url 'delete_session' session.id %}">Excluir</a> |
+            <a href="{% url 'create_document' session.id %}">Adicionar documento</a>
+        </div>
+    {% empty %}
+        <p>Nenhuma sessão criada.</p>
+    {% endfor %}
+</body>
+</html>
