@@ -1,26 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EditarSessão</title>
+    <title>Editar Sessão</title>
+    <link rel="stylesheet" href="{% static 'css/edit_session.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <h2>Editar Sessão</h2>
 
-    <form method="post">
-        {% csrf_token %}
-        <input
-            type="text"
-            name="title"
-            value="{{ session.title }}"
-            required
-        >
-        <br><br>
-        <button type="submit">Salvar</button>
-    </form>
+    <main class="editar-sessao-container">
+        <h2>Editar sessão</h2>
+        <p class="descricao">
+            <i class="fa-solid fa-folder-open"></i>
+            Altere o nome da pasta para manter seus documentos organizados
+        </p>
 
-    <br>
-    <a href="{% url 'home' %}">Voltar</a>
+        <form method="post" class="form-sessao">
+            {% csrf_token %}
+
+            <label for="title">Nome da sessão</label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                value="{{ session.title }}"
+                required
+            >
+
+            <div class="acoes-form">
+                <button type="submit" class="btn-principal">
+                    Salvar alterações
+                </button>
+
+                <a href="{% url 'home' %}" class="btn-secundario">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </main>
+
 </body>
 </html>

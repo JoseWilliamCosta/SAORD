@@ -42,11 +42,12 @@
             {% for session in sessions %}
 
             <div class="card-sessao-laranja">
+                <div class="aba-pasta"></div>
                 <div class="card-sessao" data-url="{% url 'session_detail' session.id %}">
                     <h4>
-                        
+
                         {{ session.title }}
-                       
+
                     </h4>
 
                     <p>
@@ -69,7 +70,7 @@
 </body>
 <script>
     document.querySelectorAll('.card-sessao').forEach(card => {
-        card.addEventListener('click', function(e) {
+        card.addEventListener('click', function (e) {
             // Se o clique for dentro da div de ações, NÃO navega
             if (!e.target.closest('.acoes-sessao')) {
                 window.location.href = this.dataset.url;
@@ -77,4 +78,5 @@
         });
     });
 </script>
+
 </html>
