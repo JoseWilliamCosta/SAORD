@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditarSessão</title>
+</head>
+<body>
+    <h2>Editar Sessão</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <input
+            type="text"
+            name="title"
+            value="{{ session.title }}"
+            required
+        >
+        <br><br>
+        <button type="submit">Salvar</button>
+    </form>
+
+    <br>
+    <a href="{% url 'home' %}">Voltar</a>
+</body>
+</html>

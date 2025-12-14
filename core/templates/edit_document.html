@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditarDocumento</title>
+</head>
+<body>
+    <h2>Editar Documento</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="title"
+            value="{{ document.title }}"
+            required
+        >
+        <br><br>
+
+        <textarea name="description">{{ document.description }}</textarea>
+        <br><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <br>
+    <a href="{% url 'session_detail' document.session.id %}">
+        Voltar
+    </a>
+</body>
+</html>

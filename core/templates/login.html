@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="login-container">
+
+        <!-- LADO ESQUERDO - IMAGEM -->
+        <div class="login-image"></div>
+
+        <!-- LADO DIREITO - LOGIN -->
+        <div class="login-form">
+            <h1>Faça seu Login</h1>
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Usuário" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
