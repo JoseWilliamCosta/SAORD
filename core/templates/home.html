@@ -1,40 +1,67 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <title>Documentos</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body>
-    <h2>Pagina dos Documentos</h2>
-
-    
-
-    <h1>Bem-Vindo, {{ request.user.username }}</h1>
-    <a href="{% url 'logout' %}">Logout</a>
-
-    <h1>Minhas Sessões</h1>
-
-    <a href="{% url 'create_session' %}">Criar nova sessão</a>
-    <hr>
-
-    {% for session in sessions %}
-        <div style="border:1px solid black; padding:10px; margin:10px">
-            <h3>
-                <a href="{% url 'session_detail' session.id %}">
-                    {{ session.title }}
-                        {% with total=session.documents.count %}
-                            {% if total > 0 %}
-                                📄+{{ total }}
-                            {% endif %}
-                        {% endwith %}
-                </a>
-            </h3>
-
-            <a href="{% url 'edit_session' session.id %}">Editar</a> |
-            <a href="{% url 'delete_session' session.id %}">Excluir</a> |
-            <a href="{% url 'create_document' session.id %}">Adicionar documento</a>
+    <!-- CABEÇALHO -->
+    <header class="barra-topo">
+        <div class="titulo-sistema">
+            <i class="fa-brands fa-dochub fa-bounce"></i>
+            <h2>Sistema de Documentos</h2>
         </div>
-    {% empty %}
-        <p>Nenhuma sessão criada.</p>
-    {% endfor %}
+        <div class="area-usuario">
+            <i class="fa-solid fa-user"></i>
+            <span>{{ request.user.username }}</span>
+            <a href="{% url 'logout' %}">
+                <i class="fa-solid fa-right-from-bracket icone-logout"></i>
+                Sair
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-principal">
+
+        <div class="acoes">
+            <h3>Minhas Sessões</h3>
+            <a class="botao" href="{% url 'create_session' %}">
+                + Nova Sessão
+            </a>
+        </div>
+
+        <section class="lista-sessoes">
+            {% for session in sessions %}
+            <div class="card-sessao">
+                <h4>
+                    <a href="{% url 'session_detail' session.id %}">
+                        {{ session.title }}
+                    </a>
+                </h4>
+
+                <p>
+                    {{ session.documents.count }} documentos
+                </p>
+
+                <div class="acoes-sessao">
+                    <a href="{% url 'edit_session' session.id %}">Editar</a>
+                    <a href="{% url 'delete_session' session.id %}">Excluir</a>
+                    <a href="{% url 'create_document' session.id %}">Adicionar</a>
+                </div>
+            </div>
+            {% empty %}
+            <p>Nenhuma sessão criada.</p>
+            {% endfor %}
+        </section>
+
+    </main>
 </body>
+
 </html>

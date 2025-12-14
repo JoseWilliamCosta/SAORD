@@ -1,0 +1,154 @@
+/* ====== BASE ====== */
+body {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* ====== BARRA SUPERIOR ====== */
+.barra-topo {
+    background-color: #c58a0a;
+    color: #fff;
+    padding: 15px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-topo h2 {
+    font-size: 25px;
+}
+
+/* Área do usuário */
+.area-usuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.area-usuario a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.area-usuario a:hover {
+    text-decoration: underline;
+}
+
+/* ====== CONTEÚDO PRINCIPAL ====== */
+.conteudo-principal {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ====== AÇÕES ====== */
+.acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.acoes h3 {
+    font-size: 25px;
+}
+
+/* Botão principal */
+.botao {
+    background-color: #f5a207;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #000000;
+}
+
+/* ====== LISTA DE SESSÕES ====== */
+.lista-sessoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Card da sessão */
+.card-sessao {
+    background-color: #f3f1f1;
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Título da sessão */
+.card-sessao h4 a {
+    color: #cf8e02;
+    text-decoration: none;
+}
+
+.card-sessao h4 a:hover {
+    text-decoration: underline;
+}
+
+/* Texto */
+.card-sessao p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Ações dentro do card */
+.acoes-sessao {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.acoes-sessao a {
+    font-size: 16px;
+    color: #cc7502;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.acoes-sessao a:hover {
+    text-decoration: underline;
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 768px) {
+    .barra-topo {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .acoes {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+.icone-logout {
+    transform: scaleX(-1);
+}
+
+
+.titulo-sistema {
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
