@@ -113,7 +113,6 @@ git push
 * Back End: Arthu
 * Slide: Fernanda
 * Correções e ajuda em geral(Linder): William
-
 ---
 
 ## ✅ Observações finais
