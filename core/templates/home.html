@@ -42,11 +42,12 @@
             {% for session in sessions %}
 
             <div class="card-sessao-laranja">
+                <div class="aba-pasta" ></div>
                 <div class="card-sessao" data-url="{% url 'session_detail' session.id %}">
                     <h4>
-                        
+
                         {{ session.title }}
-                       
+
                     </h4>
 
                     <p>
@@ -55,7 +56,9 @@
 
                     <div class="acoes-sessao">
                         <a href="{% url 'edit_session' session.id %}">Editar</a>
-                        <a href="{% url 'delete_session' session.id %}">Excluir</a>
+                        <a href="{% url 'delete_session' session.id %}" onclick="return confirmarExclusao(event)">
+                            Excluir
+                        </a>
                         <a href="{% url 'create_document' session.id %}">Adicionar</a>
                     </div>
                 </div>
@@ -69,12 +72,18 @@
 </body>
 <script>
     document.querySelectorAll('.card-sessao').forEach(card => {
-        card.addEventListener('click', function(e) {
+        card.addEventListener('click', function (e) {
             // Se o clique for dentro da div de ações, NÃO navega
             if (!e.target.closest('.acoes-sessao')) {
                 window.location.href = this.dataset.url;
             }
         });
     });
+
+    function confirmarExclusao(event) {
+        event.stopPropagation(); // impede clique no card
+        return confirm('Tem certeza que deseja excluir esta sessão?');
+    }
 </script>
+
 </html>

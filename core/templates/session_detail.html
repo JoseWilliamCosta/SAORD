@@ -1,37 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DetalhesSessão</title>
+    <title>{{ session.title }} - Documentos</title>
+    <link rel="stylesheet" href="{% static 'css/session_detail.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
-    <h2>{{ session.title }}</h2>
-    <button type=""><a href="{% url 'home' %}">Voltar</a></button>
 
-    <button type=""><a href="{% url 'create_document' session.id %}">Adicionar documento</a></a></button>
-
-    <hr>
-
-    {% for document in documents %}
-        <div>
-            <strong>{{ document.title }}</strong><br>
-            {{ document.description }}<br>
-
-            {% if document.file %}
-            
-                <a href="{{ document.file.url }}" target="_blank">
-                    📂 Abrir arquivo
-                </a><br>
-                
-            {% endif %}
-
-            <a href="{% url 'edit_document' document.id %}">Editar</a> |
-            <a href="{% url 'delete_document' document.id %}">Excluir</a>
+<body> <!-- CABEÇALHO DA SESSÃO -->
+    <header class="topo-sessao">
+        <div class="titulo-sessao"> <i class="fa-sharp fa-solid fa-folder-open fa-bounce"></i>
+            <h2>{{ session.title }}</h2>
         </div>
-        <hr>
-    {% empty %}
-        <p>Nenhum documento.</p>
-    {% endfor %}
+        <div class="acoes-topo"> <a href="{% url 'home' %}" class="btn-secundario"> Voltar </a> <a
+                href="{% url 'create_document' session.id %}" class="btn-principal"> Adicionar documento </a> </div>
+    </header> <!-- CONTEÚDO -->
+    <main class="conteudo-sessao"> {% if documents %} <section class="lista-documentos"> {% for document in documents %}
+            <div class="card-documento">
+                <div class="info-documento">
+                    <h4> <i class="fa-solid fa-file-pdf"></i> {{ document.title }} </h4> {% if document.description %}
+                    <p>{{ document.description }}</p> {% endif %}
+                </div>
+                <div class="acoes-documento"> {% if document.file %} <a href="{{ document.file.url }}" target="_blank">
+                        Abrir </a> {% endif %} <a href="{% url 'edit_document' document.id %}"> Editar </a> <a
+                        href="{% url 'delete_document' document.id %}"
+                        onclick="return confirm('Deseja excluir este documento?')"> Excluir </a> </div>
+            </div> {% endfor %}
+        </section> {% else %} <p class="vazio">Nenhum documento nesta sessão.</p> {% endif %}
+    </main>
 </body>
+
 </html>

@@ -1,0 +1,182 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* FUNDO GERAL */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #d68203 0%, #241a05 100%);
+    color: #2b2b2b;
+}
+
+/* ================= TOPO DA SESSÃO ================= */
+.topo-sessao {
+    background-color: #f5c76b;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.titulo-sessao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.titulo-sessao i {
+    font-size: 26px;
+    color: #5a3a00;
+}
+
+.titulo-sessao h2 {
+    font-size: 24px;
+    color: #3b2600;
+}
+
+/* AÇÕES DO TOPO */
+.acoes-topo {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-principal,
+.btn-secundario {
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Botão adicionar */
+.btn-principal {
+    background-color: #f09103;
+    color: #fff;
+}
+
+.btn-principal:hover {
+    background-color: #222;
+}
+
+/* Botão voltar */
+.btn-secundario {
+    background-color: #f09103;
+    color: #ffffff;
+}
+
+.btn-secundario:hover {
+    background-color: #000000;
+}
+
+/* ================= CONTEÚDO ================= */
+.conteudo-sessao {
+    padding: 40px;
+}
+
+/* LISTA DE DOCUMENTOS */
+.lista-documentos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* CARD DE DOCUMENTO */
+.card-documento {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card-documento:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* INFO DO DOCUMENTO */
+.info-documento h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-documento i {
+    color: #d68203;
+}
+
+.info-documento p {
+    font-size: 14px;
+    color: #555;
+
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* AÇÕES DO DOCUMENTO */
+.acoes-documento {
+    display: flex;
+    gap: 12px;
+}
+
+.acoes-documento a {
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    background-color: #ff7300;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.acoes-documento a:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+/* MENSAGEM DE LISTA VAZIA */
+.vazio {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 18px;
+    color: #fff;
+    opacity: 0.9;
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+    .topo-sessao {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .conteudo-sessao {
+        padding: 20px;
+    }
+
+    .card-documento {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .acoes-documento {
+        align-self: flex-end;
+    }
+}
