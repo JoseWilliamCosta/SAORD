@@ -1,31 +1,75 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriarDocumento</title>
+    <title>Adicionar Documento</title>
+    <link rel="stylesheet" href="{% static 'css/create_document.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <h2>Adicionar Documento</h2>
 
-    <p>Sessão: <strong>{{ session.title }}</strong></p>
+<main class="documento-container">
 
-    <form method="post" enctype="multipart/form-data">
+    <header class="cabecalho-pagina">
+        <h2>
+            <i class="fa-solid fa-file-circle-plus"></i>
+            Adicionar Documento
+        </h2>
+
+        <p class="sessao-atual">
+            <i class="fa-solid fa-folder-open"></i>
+            Sessão:
+            <strong>{{ session.title }}</strong>
+        </p>
+    </header>
+
+    <form method="post" enctype="multipart/form-data" class="form-documento">
         {% csrf_token %}
 
-        <input type="text" name="title" placeholder="Título" required>
-        <br><br>
+        <div class="campo">
+            <label for="title">Título</label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Ex: Contrato assinado"
+                required
+            >
+        </div>
 
-        <textarea name="description" placeholder="Descrição"></textarea>
-        <br><br>
+        <div class="campo">
+            <label for="description">Descrição</label>
+            <textarea
+                id="description"
+                name="description"
+                placeholder="Descrição opcional"
+                rows="4"
+            ></textarea>
+        </div>
 
-        <input type="file" name="file">
-        <br><br>
+        <div class="campo upload">
+            <label for="file">Arquivo</label>
+            <input
+                type="file"
+                id="file"
+                name="file"
+            >
+            <small>PDF, DOCX, JPG, PNG</small>
+        </div>
 
-        <button type="submit">Adicionar</button>
+        <div class="acoes-form">
+            <button type="submit" class="btn-principal">
+                Adicionar documento
+            </button>
+
+            <a href="{% url 'home' %}" class="btn-secundario">
+                Cancelar
+            </a>
+        </div>
     </form>
 
-    <br>
-    <a href="{% url 'home' %}">Voltar</a>
+</main>
+
 </body>
 </html>

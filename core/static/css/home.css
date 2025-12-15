@@ -79,8 +79,9 @@ body {
 
 /* Card da sessão */
 .card-sessao-laranja{
-    background-color: #c58a0a;
-    padding-top: 18px;
+    position: relative;
+    background-color: transparent;
+    padding-top: 14px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     
@@ -92,12 +93,17 @@ body {
 .card-sessao {
     background-color: #e7e6e6;
     padding: 18px;
+    padding-top: 28px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.card-sessao-laranja  :hover {
+    background-color: #d6d6d6;
 }
 
 /* Título DA SESSÃO fica bugado com emots e isso arruma */
@@ -167,6 +173,18 @@ body {
     align-items: center;
     gap: 10px;
 }
+
+.aba-pasta {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 105px;
+    height: 14px;
+    background-color: #c58a0a;
+    border-radius: 6px 6px 0 0;
+    z-index: 2;
+}
+
 
 
 

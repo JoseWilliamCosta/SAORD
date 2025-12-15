@@ -1,33 +1,74 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EditarDocumento</title>
+    <title>Editar Documento</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/edit_document.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
-    <h2>Editar Documento</h2>
 
-    <form method="post">
-        {% csrf_token %}
+    <main class="editar-documento-container">
 
-        <input
-            type="text"
-            name="title"
-            value="{{ document.title }}"
-            required
-        >
-        <br><br>
+        <div class="card-editar">
 
-        <textarea name="description">{{ document.description }}</textarea>
-        <br><br>
+            <!-- TÍTULO COM ÍCONE -->
+            <div class="titulo-edicao">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <h2>Editar Documento</h2>
+            </div>
 
-        <button type="submit">Salvar</button>
-    </form>
+            <!-- INFO DA SESSÃO -->
+            <p class="sessao-info">
+                Sessão:
+                <strong>{{ document.session.title }}</strong>
+            </p>
 
-    <br>
-    <a href="{% url 'session_detail' document.session.id %}">
-        Voltar
-    </a>
+            <!-- FORMULÁRIO -->
+            <form method="post" class="form-documento">
+                {% csrf_token %}
+
+                <label for="title">Título do documento</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value="{{ document.title }}"
+                    required
+                >
+
+                <label for="description">Descrição</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="4"
+                >{{ document.description }}</textarea>
+
+                <!-- AÇÕES -->
+                <div class="acoes-form">
+                    <button type="submit" class="btn-principal">
+                        <i class="fa-solid fa-check"></i>
+                        Salvar alterações
+                    </button>
+
+                    <a href="{% url 'session_detail' document.session.id %}"
+                       class="btn-secundario">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                </div>
+            </form>
+
+        </div>
+
+    </main>
+
 </body>
 </html>
