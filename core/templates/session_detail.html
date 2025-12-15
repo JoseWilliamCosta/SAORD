@@ -4,72 +4,32 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ session.title }}</title>
-
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>{{ session.title }} - Documentos</title>
+    <link rel="stylesheet" href="{% static 'css/session_detail.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body>
-
-<header class="barra-topo">
-    <div class="titulo-sistema">
-        <i class="fa-sharp fa-solid fa-folder-open"></i>
-        <h2>{{ session.title }}</h2>
-    </div>
-
-    <div class="area-usuario">
-        <a href="{% url 'home' %}">Voltar</a>
-    </div>
-</header>
-
-<main class="conteudo-principal">
-
-    <div class="acoes">
-        <h3>Documentos</h3>
-        <a class="botao" href="{% url 'create_document' session.id %}">
-            + Novo Documento
-        </a>
-    </div>
-
-    <section class="lista-sessoes">
-
-        {% for document in documents %}
-        <div class="card-sessao-laranja">
-            <div class="aba-pasta"></div>
-
-            <div class="card-sessao">
-                <h4>
-                    <i class="fa-solid fa-file-lines"></i>
-                    {{ document.title }}
-                </h4>
-
-                {% if document.description %}
-                <p>{{ document.description }}</p>
-                {% else %}
-                <p>Sem descrição</p>
-                {% endif %}
-
-                <div class="acoes-sessao">
-                    {% if document.file %}
-                    <a href="{{ document.file.url }}" target="_blank">Abrir</a>
-                    {% endif %}
-                    <a href="{% url 'edit_document' document.id %}">Editar</a>
-                    <a href="{% url 'delete_document' document.id %}"
-                       onclick="return confirm('Deseja excluir este documento?')">
-                        Excluir
-                    </a>
-                </div>
-            </div>
+<body> <!-- CABEÇALHO DA SESSÃO -->
+    <header class="topo-sessao">
+        <div class="titulo-sessao"> <i class="fa-sharp fa-solid fa-folder-open fa-bounce"></i>
+            <h2>{{ session.title }}</h2>
         </div>
-        {% empty %}
-        <p>Nenhum documento.</p>
-        {% endfor %}
-
-    </section>
-
-</main>
-
+        <div class="acoes-topo"> <a href="{% url 'home' %}" class="btn-secundario"> Voltar </a> <a
+                href="{% url 'create_document' session.id %}" class="btn-principal"> Adicionar documento </a> </div>
+    </header> <!-- CONTEÚDO -->
+    <main class="conteudo-sessao"> {% if documents %} <section class="lista-documentos"> {% for document in documents %}
+            <div class="card-documento">
+                <div class="info-documento">
+                    <h4> <i class="fa-solid fa-file-pdf"></i> {{ document.title }} </h4> {% if document.description %}
+                    <p>{{ document.description }}</p> {% endif %}
+                </div>
+                <div class="acoes-documento"> {% if document.file %} <a href="{{ document.file.url }}" target="_blank">
+                        Abrir </a> {% endif %} <a href="{% url 'edit_document' document.id %}"> Editar </a> <a
+                        href="{% url 'delete_document' document.id %}"
+                        onclick="return confirm('Deseja excluir este documento?')"> Excluir </a> </div>
+            </div> {% endfor %}
+        </section> {% else %} <p class="vazio">Nenhum documento nesta sessão.</p> {% endif %}
+    </main>
 </body>
+
 </html>

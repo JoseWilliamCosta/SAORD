@@ -14,7 +14,6 @@ body {
 }
 
 /* ================= TOPO DA SESSÃO ================= */
-
 .topo-sessao {
     background-color: #f5c76b;
     padding: 20px 30px;
@@ -41,7 +40,6 @@ body {
 }
 
 /* AÇÕES DO TOPO */
-
 .acoes-topo {
     display: flex;
     gap: 12px;
@@ -70,7 +68,6 @@ body {
 .btn-secundario {
     background-color: #f09103;
     color: #ffffff;
-   
 }
 
 .btn-secundario:hover {
@@ -78,13 +75,11 @@ body {
 }
 
 /* ================= CONTEÚDO ================= */
-
 .conteudo-sessao {
     padding: 40px;
 }
 
 /* LISTA DE DOCUMENTOS */
-
 .lista-documentos {
     display: flex;
     flex-direction: column;
@@ -92,7 +87,6 @@ body {
 }
 
 /* CARD DE DOCUMENTO */
-
 .card-documento {
     background-color: #fff;
     border-radius: 10px;
@@ -105,7 +99,6 @@ body {
     max-width: 600px;
     width: 100%;
     margin: 0 auto;
- 
 }
 
 .card-documento:hover {
@@ -114,7 +107,6 @@ body {
 }
 
 /* INFO DO DOCUMENTO */
-
 .info-documento h4 {
     font-size: 18px;
     margin-bottom: 6px;
@@ -133,7 +125,6 @@ body {
 }
 
 /* AÇÕES DO DOCUMENTO */
-
 .acoes-documento {
     display: flex;
     gap: 12px;
@@ -155,7 +146,6 @@ body {
 }
 
 /* MENSAGEM DE LISTA VAZIA */
-
 .vazio {
     text-align: center;
     margin-top: 60px;
@@ -165,7 +155,6 @@ body {
 }
 
 /* ================= RESPONSIVO ================= */
-
 @media (max-width: 768px) {
     .topo-sessao {
         flex-direction: column;
