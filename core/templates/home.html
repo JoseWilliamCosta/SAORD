@@ -56,7 +56,9 @@
 
                     <div class="acoes-sessao">
                         <a href="{% url 'edit_session' session.id %}">Editar</a>
-                        <a href="{% url 'delete_session' session.id %}">Excluir</a>
+                        <a href="{% url 'delete_session' session.id %}" onclick="return confirmarExclusao(event)">
+                            Excluir
+                        </a>
                         <a href="{% url 'create_document' session.id %}">Adicionar</a>
                     </div>
                 </div>
@@ -77,6 +79,11 @@
             }
         });
     });
+
+    function confirmarExclusao(event) {
+        event.stopPropagation(); // impede clique no card
+        return confirm('Tem certeza que deseja excluir esta sessão?');
+    }
 </script>
 
 </html>

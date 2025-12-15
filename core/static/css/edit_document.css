@@ -1,0 +1,154 @@
+/* ===== BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #d68203, #241a05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== CONTAINER ===== */
+.editar-documento-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ===== CARD ===== */
+.card-editar {
+    width: 100%;
+    max-width: 520px;
+    background-color: #f3f2f2;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== TÍTULO ===== */
+.titulo-edicao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.titulo-edicao i {
+    font-size: 26px;
+    color: #c58a0a;
+}
+
+.titulo-edicao h2 {
+    font-size: 26px;
+    color: #333;
+}
+
+/* ===== INFO DA SESSÃO ===== */
+.sessao-info {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* ===== FORM ===== */
+.form-documento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-documento label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Inputs */
+.form-documento input,
+.form-documento textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.form-documento input:focus,
+.form-documento textarea:focus {
+    outline: none;
+    border-color: #c58a0a;
+}
+
+/* ===== AÇÕES ===== */
+.acoes-form {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Botão principal */
+.btn-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: #c58a0a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-principal:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}
+
+/* Botão secundário */
+.btn-secundario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: transparent;
+    border: 2px solid #c58a0a;
+    color: #c58a0a;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secundario:hover {
+    background-color: #c58a0a;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 500px) {
+    .card-editar {
+        padding: 30px 20px;
+    }
+
+    .acoes-form {
+        flex-direction: column;
+    }
+
+    .btn-principal,
+    .btn-secundario {
+        width: 100%;
+    }
+}
