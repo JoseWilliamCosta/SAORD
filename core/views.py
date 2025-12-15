@@ -105,7 +105,7 @@ def create_document(request, session_id):
             description=request.POST.get('description'),
             file=request.FILES.get('file')
         )
-        return redirect('home')
+        return redirect('session_detail', session_id=session.id)
 
     return render(request, 'create_document.html', {'session': session})
 

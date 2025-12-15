@@ -102,6 +102,10 @@ body {
     gap: 10px;
 }
 
+.card-sessao-laranja  :hover {
+    background-color: #d6d6d6;
+}
+
 /* Título DA SESSÃO fica bugado com emots e isso arruma */
 .card-sessao h4 {
     min-height: 28px; /* ou ajuste conforme o tamanho da fonte */
