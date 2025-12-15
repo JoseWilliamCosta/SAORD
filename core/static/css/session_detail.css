@@ -122,6 +122,10 @@ body {
 .info-documento p {
     font-size: 14px;
     color: #555;
+
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 /* AÇÕES DO DOCUMENTO */

@@ -24,8 +24,8 @@ class Document(models.Model):
         User,
         on_delete=models.CASCADE
     )
-    title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    title = models.CharField(max_length=90)
+    description = models.TextField(blank=True, max_length=300)
     file = models.FileField(upload_to='documents/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
