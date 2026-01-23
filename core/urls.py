@@ -6,10 +6,15 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # parte basica de autenticação
-    path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('login/', login_view, name='login'),
+    path('cadastro/', cadastro_view, name='cadastro'),
     path('logout/', logout_view, name='logout'),
+    path("perfil/", perfil_usuario, name="perfil"),
+    path("perfil/atualizar/", atualizar_usuario, name="atualizar_usuario"),
+    path("perfil/excluir/", excluir_usuario, name="excluir_usuario"),
+
+
 
 
     #logica de sessões e documentos
@@ -23,8 +28,7 @@ urlpatterns = [
     path('document/<int:document_id>/delete/', delete_document, name='delete_document'),
 
 
-    # === api ===
-    #path('api/notas/', notas_filtradas_api, name='notas_filtradas_api'), 
+    
 ]
 
 if settings.DEBUG:

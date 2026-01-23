@@ -61,6 +61,11 @@ input {
 }
 
 /* Botão */
+
+.btn-secundario {
+    padding: 5px;
+    color: #fff;
+}
 button {
     padding: 10px;
     background-color: #000000;
