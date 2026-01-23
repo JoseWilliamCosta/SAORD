@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SAORD | Meu Perfil</title>
+
+    <link rel="stylesheet" href="{% static 'css/stylePerfil.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="perfil-container">
+
+        <!-- LADO ESQUERDO -->
+        <div class="perfil-image"></div>
+
+        <!-- LADO DIREITO -->
+        <div class="perfil-form">
+            <h1>Meu Perfil</h1>
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% else %}
+
+            <div class="perfil-card">
+
+                {% if request.GET.edit %}
+
+                <!-- ===== MODO EDIÇÃO ===== -->
+                <form method="POST" action="{% url 'atualizar_usuario' %}">
+                    {% csrf_token %}
+
+                    <div class="perfil-item">
+                        <span>Usuário</span>
+                        <input type="text" name="username" value="{{ user.username }}">
+                    </div>
+
+                    <div class="perfil-item">
+                        <span>Email</span>
+                        <input type="email" name="email" value="{{ user.email }}">
+                    </div>
+
+                    <div class="perfil-buttons">
+                        <button class="button" type="submit">
+                            <i class="fa-solid fa-check"></i>
+                            Salvar
+                        </button>
+
+                        <a class="button secondary" href="{% url 'perfil' %}">
+                            <i class="fa-solid fa-xmark"></i>
+                            Cancelar
+                        </a>
+                    </div>
+                </form>
+
+                {% else %}
+
+                <!-- ===== MODO VISUALIZAÇÃO ===== -->
+                <div class="perfil-item">
+                    <span>Usuário</span>
+                    <strong>{{ user.username }}</strong>
+                </div>
+
+                <div class="perfil-item">
+                    <span>Email</span>
+                    <strong>{{ user.email }}</strong>
+                </div>
+
+                <div class="perfil-buttons">
+                    <a class="button" href="{% url 'home' %}">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Voltar
+                    </a>
+
+                    <a class="button secondary" href="?edit=1">
+                        <i class="fa-solid fa-user-pen"></i>
+                        Editar
+                    </a>
+
+                    <form method="post" action="{% url 'excluir_usuario' %}"
+                        onsubmit="return confirm('Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.');">
+                        {% csrf_token %}
+                        <button class="button terciario" type="submit">
+                            <i class="fa-solid fa-trash"></i>
+                            Excluir
+                        </button>
+                    </form>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+            {% endif %}
+        </div>
+
+    </div>
+</body>
+
+</html>

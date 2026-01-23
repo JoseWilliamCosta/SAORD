@@ -1,0 +1,146 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container */
+.perfil-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Imagem lateral */
+.perfil-image {
+    flex: 1;
+    background-image: url("../imagens/perfil.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Área do perfil */
+.perfil-form {
+    flex: 1;
+    background: linear-gradient(135deg, #e6ab08, #522c00);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Título */
+.perfil-form h1 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 42px;
+}
+
+/* Card do perfil */
+.perfil-card {
+    background-color: #a17410;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Item do perfil */
+.perfil-item {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.perfil-item span {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.perfil-item strong {
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+/* Botões */
+.perfil-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button {
+    flex: 1;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.button i {
+    margin-right: 6px;
+}
+
+.button:hover {
+    background-color: #1a1a1a;
+}
+
+.button.secondary {
+    background-color: #333;
+}
+.button.terciario {
+    background-color: #9d2424;
+}
+
+.button.secondary:hover {
+    background-color: #555;
+}
+
+.button.terciario:hover {
+    background-color: #c87373;
+}
+
+/* Erro */
+.error {
+    color: #ffdddd;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .perfil-image {
+        display: none;
+    }
+
+    .perfil-form {
+        flex: 1;
+    }
+}

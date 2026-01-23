@@ -20,7 +20,7 @@
         </div>
         <div class="area-usuario">
             <i class="fa-solid fa-user"></i>
-            <span>{{ request.user.username }}</span>
+            <a href="{% url 'perfil' %}" ><span>{{ request.session.username }}</span></a>
             <a href="{% url 'logout' %}">
                 <i class="fa-solid fa-right-from-bracket icone-logout"></i>
                 Sair

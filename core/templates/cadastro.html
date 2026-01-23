@@ -16,7 +16,7 @@
 
         <!-- LADO DIREITO - LOGIN -->
         <div class="login-form">
-            <h1>Faça seu Login</h1>
+            <h1>Faça seu Cadastro</h1>
 
             {% if error %}
             <p class="error">{{ error }}</p>
@@ -24,10 +24,12 @@
 
             <form method="post">
                 {% csrf_token %}
+                <input type="text" name="username" placeholder="Usuário" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Senha" required>
-                <button type="submit">Entrar</button>
-                <a class="btn-secundario" href="{% url 'cadastro' %}"> Cadastra-se </a>
+                <button type="submit">Cadastra</button>
+                <a class="btn-secundario" href="{% url 'login' %}"> Já fiz meu cadastro </a>
+
 
                 {% if error %}
                 <p style="color:red">{{ error }}</p>
