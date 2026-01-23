@@ -110,7 +110,7 @@ git push
 ## Divisão do Trabalho:
 * Documentação: Warley
 * Front End: Pedro Henrique
-* Back End: Arthu
+* Back End: Arthur
 * Slide: Fernanda
 * Correções e ajuda em geral(Linder): William
 ---
