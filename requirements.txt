@@ -2,7 +2,7 @@ asgiref==3.11.0
 certifi==2026.1.4
 charset-normalizer==3.4.4
 dj-database-url==3.1.0
-Django==6.0
+Django==5.2.9
 djangorestframework==3.16.1
 gunicorn==24.0.0
 idna==3.11

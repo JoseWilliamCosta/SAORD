@@ -17,12 +17,12 @@ body {
 
 /* ===== CONTAINER ===== */
 .criar-sessao-container {
-    width: 1002;
+    width: 100%;
     max-width: 420px;
     background-color: #f3f2f2;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ===== TÍTULO ===== */
@@ -42,7 +42,7 @@ body {
 .form-sessao {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
 /* Label */
@@ -54,8 +54,8 @@ body {
 
 /* Input */
 .form-sessao input {
-    padding: 10px 12px;
-    font-size: 14px;
+    padding: 12px;
+    font-size: 15px;
     border: 1px solid #ccc;
     border-radius: 6px;
     outline: none;
@@ -77,7 +77,7 @@ body {
 .btn-principal {
     background-color: #c58a0a;
     color: #fff;
-    padding: 10px 18px;
+    padding: 12px 18px;
     border-radius: 6px;
     border: none;
     font-weight: bold;
@@ -102,17 +102,27 @@ body {
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 480px) {
+
+    body {
+        padding: 20px;
+    }
+
     .criar-sessao-container {
-        margin: 0 15px;
+        padding: 25px 20px;
     }
 
     .acoes-form {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         align-items: stretch;
     }
 
     .btn-principal {
         width: 100%;
+        text-align: center;
+    }
+
+    .btn-secundario {
+        text-align: center;
     }
 }

@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>SAORD</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -19,22 +18,15 @@
         <div class="login-form">
             <h1>Faça seu Cadastro</h1>
 
-            {% if error %}
-            <p class="error">{{ error }}</p>
-            {% endif %}
+              
 
             <form method="post">
                 {% csrf_token %}
                 <input type="text" name="username" placeholder="Usuário" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Senha" required>
-                <button type="submit">Cadastra</button>
-                <a class="btn-secundario" href="{% url 'login' %}"> Já fiz meu cadastro </a>
-
-
-                {% if error %}
-                <p style="color:red">{{ error }}</p>
-                {% endif %}
+                <button type="submit">Entrar</button>
+                <a style="color: bisque;" href="{% url 'login' %}">Ja tenho cadastro</a>
             </form>
         </div>
 
